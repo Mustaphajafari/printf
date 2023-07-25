@@ -8,7 +8,7 @@
  * Return: The number of characters printed.
  */
 
-int handle_string(char *str)
+int handle_string(const char *str)
 {
 	int i = 0;
 

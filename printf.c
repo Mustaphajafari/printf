@@ -2,15 +2,15 @@
 #include "main.h"
 #include <stdarg.h>
 /**
-  * handle_string_format - Helper function to handle %s format specifier 
+  * handle_string_format - helper function
   * @list: va_list
-  * Return: function handle String
+  * Return: function
   */
 int handle_string_format(va_list list)
 {
 	const char *str = va_arg(list, const char *);
 
-	return handle_string(str);
+	return (handle_string(str));
 }
 /**
   * handle_char_format - Helper function to handle %c format specifier
@@ -20,10 +20,12 @@ int handle_string_format(va_list list)
 int handle_char_format(va_list list)
 {
 	char c = va_arg(list, int);
-	return _putchar(c);
+
+	return (_putchar(c));
 }
+
 /**
-  * handle_decimal_format - Helper function to handle %d and %i format specifiers 
+  * handle_decimal_format - helper function
   * @list: va_list
   * Return: num_chars
   */
@@ -38,17 +40,19 @@ int handle_decimal_format(va_list list)
 	}
 	num_chars += len_num(num);
 	handle_number(num);
-	return num_chars;
+	return (num_chars);
 }
 
 /**
   * handle_format - Helper function to handle format specifier
   * @format: string characters
+  * @list: va_list
   * Return: num_chars
   */
 int handle_format(const char *format, va_list list)
 {
 	int num_chars = 0;
+
 	switch (*format)
 	{
 		case 'c':
@@ -72,11 +76,8 @@ int handle_format(const char *format, va_list list)
 			}
 			break;
 	}
-	return num_chars;
+	return (num_chars);
 }
-
-		
-
 
 /**
  * _printf - Printf function
@@ -105,7 +106,7 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(list);
-	return num_chars;
+	return (num_chars);
 }
 
 
