@@ -89,7 +89,7 @@ int _printf(const char *format, ...)
 	int num_chars = 0;
 	va_list list;
 
-	if (!format || format[0] == '\0')
+	if (format == '\0')
 		return (-1);
 	va_start(list, format);
 	while (*format)
