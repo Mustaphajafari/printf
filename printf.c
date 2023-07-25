@@ -1,20 +1,22 @@
 #include <stdio.h>
-#include <main.h>
+#include "main.h"
 #include <stdarg.h>
 /**
  * _printf - Printf function
  * @format: String charactere.
  * Return: chars printed.
  */
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
         int num_chars = 0;
+	char c;
+	char *s;
         va_list list;
         if(!format || format[0] == '\0')
                 return (-1);
         va_start (list, format);
-        char c;
-        const char *s;
+        
+        
         while (*format)
 	{
 		if(*format == "%")
@@ -43,7 +45,7 @@ int _printf(char *format, ...)
                                 case 'd':
                                 case 'i':
                                 {
-                                        int num = va_arg(args, int);
+                                        int num = va_arg(list, int);
                                         if (num < 0)
                                         {
                                                 num_chars++;
