@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
                                 case 's':
                                 {
                                         const char *str = va_arg(list, const char *);
-                                        num_chars = num_chars + handle_string(const char *str);
+                                        num_chars = num_chars + handle_string((char *)str);
                                         break;
                                 }
 				case '%':
