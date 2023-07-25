@@ -30,8 +30,8 @@ int _printf(const char *format, ...)
                                 }
                                 case 's':
                                 {
-                                        char *str = va_arg(list, char *);
-                                        num_chars = num_chars + handle_string(char *str);
+                                        const char *str = va_arg(list, const char *);
+                                        num_chars = num_chars + handle_string(const char *str);
                                         break;
                                 }
 				case '%':
