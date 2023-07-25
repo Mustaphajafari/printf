@@ -11,10 +11,12 @@
 int handle_string(char *str)
 {
 	int i = 0;
+
 	if (str == NULL)
 	{
 		const char *null_str = "null";
 		int i = 0;
+
 		while (null_str[i])
 		{
 			_putchar(null_str[i]);
@@ -22,7 +24,6 @@ int handle_string(char *str)
 		}
 		return (i);
 	}
-	
 	while (str[i])
 	{
 		_putchar(str[i]);
@@ -41,9 +42,9 @@ int handle_string(char *str)
 int len_num(int num)
 {
 	int count = 0;
+
 	if (num == 0)
-		return 1;
-	
+		return (1);
 	if (num < 0)
 	{
 		count++;
@@ -54,7 +55,7 @@ int len_num(int num)
 		count++;
 		num /= 10;
 	}
-	return count;
+	return (count);
 }
 
 /**
@@ -78,7 +79,7 @@ int handle_number(int num)
 	}
 	else
 	{
-		_putchar(num + '0');
+		_putchar(num + 48);
 	}
 	return (1);
 }
