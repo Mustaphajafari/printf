@@ -1,4 +1,6 @@
 #include <unistd.h>
+#include "main.h"
+
 /**
  * _putchar - put character
  *@c: I dont know
