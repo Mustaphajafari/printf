@@ -1,53 +1,6 @@
 #include <stdio.h>
 #include "main.h"
 #include <stdarg.h>
-/**
-  * handle_format - Helper function to handle format specifier
-  * @format: string characters
-  * @list: va_list
-  * Return: num_chars
-  */
-int handle_format(const char* format, va_list list, int *count) 
-{
-	char specifier = *format;
-
-	if (specifier == 'c') 
-	{
-		char c = va_arg(list, int);
-		*count += _putchar(c);
-	}
-	else if (specifier == 's') 
-	{
-	char* str = va_arg(list, char*); 
-	*count += handle_string(str);
-	}
-	else if (specifier == '%') 
-	{
-		_putchar('%');
-		*count += 1;
-	}
-	else if (specifier == 'd' || specifier == 'i') 
-	{
-		int num = va_arg(list, int);
-
-		if (num < 0) 
-		{
-			*count += 1;
-		}
-		*count += len_num(num);
-		handle_number(num);
-	} 
-	else 
-	{
-		_putchar('%');
-		*count += 1;
-		if (*format) 
-		{
-			_putchar(*format);
-			*count += 1;
-		}
-	}
-}
 
 
 /**
@@ -59,23 +12,62 @@ int _printf(const char *format, ...)
 {
 	int num_chars = 0;
 	va_list list;
+
 	va_start(list, format);
 
-	if (!format || format[0] == '\0)
+	if (!format || format[0])
 		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			handle_format(format, list, &count);
-			format++; 
+			if (*format == 'c')
+			{
+				char c = va_arg(list, int);
+
+				num_chars = num_chars + _putchar(c);
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(list, char *);
+
+				num_chars = num_chars + handle_string(str);
+			}
+			else if (*format == '%')
+			{
+				_putchar('%');
+				num_chars++;
+			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(list, int);
+
+				if (num < 0)
+				{
+					_putchar('-');
+					num = -num;
+				}
+				num_chars = num_chars + len_num(num);
+				handle_number(num);
+			}
+			else
+			{
+				_putchar('%');
+				num_chars++;
+				if (*format)
+				{
+					_putchar(*format);
+					num_chars++;
+				}
+			}
+			format++;
 		}
 		else
 		{
 			_putchar(*format);
 			format++
-			count++;
+			num_chars++;
 		}
 	}
 	va_end(list);

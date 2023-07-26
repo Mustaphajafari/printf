@@ -8,21 +8,13 @@
  * Return: The number of characters printed.
  */
 
-int handle_string(const char *str)
+int handle_string(char *str)
 {
 	int i = 0;
 
 	if (str == NULL)
 	{
-		const char *null_str = "null";
-		int i = 0;
-
-		while (null_str[i])
-		{
-			_putchar(null_str[i]);
-			i++;
-		}
-		return (i);
+		return (handle_string("null"));
 	}
 	while (str[i])
 	{
