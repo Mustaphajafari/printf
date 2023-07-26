@@ -2,82 +2,53 @@
 #include "main.h"
 #include <stdarg.h>
 /**
-  * handle_string_format - helper function
-  * @list: va_list
-  * Return: function
-  */
-int handle_string_format(va_list list)
-{
-	const char *str = va_arg(list, const char *);
-
-	return (handle_string(str));
-}
-/**
-  * handle_char_format - Helper function to handle %c format specifier
-  * @list: va_list
-  * Return: putchar
-  */
-int handle_char_format(va_list list)
-{
-	char c = va_arg(list, int);
-
-	return (_putchar(c));
-}
-
-/**
-  * handle_decimal_format - helper function
-  * @list: va_list
-  * Return: num_chars
-  */
-int handle_decimal_format(va_list list)
-{
-	int num = va_arg(list, int);
-	int num_chars = 0;
-
-	if (num < 0)
-	{
-		num_chars++;
-	}
-	num_chars += len_num(num);
-	handle_number(num);
-	return (num_chars);
-}
-
-/**
   * handle_format - Helper function to handle format specifier
   * @format: string characters
   * @list: va_list
   * Return: num_chars
   */
-int handle_format(const char *format, va_list list)
+int handle_format(const char* format, va_list list, int *count) 
 {
-	int num_chars = 0;
+	char specifier = *format;
 
-	switch (*format)
+	if (specifier == 'c') 
 	{
-		case 'c':
-			num_chars = num_chars + handle_char_format(list);
-			break;
-		case 's':
-			num_chars = num_chars + handle_string_format(list);
-			break;
-		case '%':
-			num_chars = num_chars + _putchar('%');
-			break;
-		case 'd':
-		case 'i':
-			num_chars = num_chars + handle_decimal_format(list);
-			break;
-		default:
-			num_chars = num_chars + _putchar('%');
-			if (*format)
-			{
-				num_chars = num_chars + _putchar(*format);
-			}
-			break;
+		char c = va_arg(list, int);
+		*count += _putchar(c);
 	}
-	return (num_chars);
+	else if (specifier == 's') 
+	{
+	char* str = va_arg(list, char*); 
+	*count += handle_string(str);
+	}
+	else if (specifier == '%') 
+	{
+		_putchar('%');
+		*count += 1;
+	}
+	else if (specifier == 'd' || specifier == 'i') 
+	{
+		int num = va_arg(list, int);
+
+		if (num < 0) 
+		{
+			*count += 1;
+		}
+		*count += len_num(num);
+		handle_number(num);
+	} 
+	else 
+	{
+		_putchar('%');
+		*count += 1;
+		if (*format) 
+		{
+			_putchar(*format);
+			*count += 1;
+		}
+	}
 }
+
 
 /**
  * _printf - Printf function
@@ -88,22 +59,24 @@ int _printf(const char *format, ...)
 {
 	int num_chars = 0;
 	va_list list;
-
-	if (format == '\0')
-		return (-1);
 	va_start(list, format);
+
+	if (!format || format[0] == '\0)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			num_chars = num_chars + handle_format(format, list);
+			handle_format(format, list, &count);
+			format++; 
 		}
 		else
 		{
-			num_chars = num_chars + _putchar(*format);
+			_putchar(*format);
+			format++
+			count++;
 		}
-		format++;
 	}
 	va_end(list);
 	return (num_chars);
