@@ -2,17 +2,32 @@
 #define MAIN_H
 #include <stdarg.h>
 int _putchar(char c);
-int _printf(const char *format, ...);
 
+int handle_string(char *str);
+int len_num(int num);
+int handle_number(int num);
+
+
+
+
+
+
+
+
+
+
+
+int _printf(const char *format, ...);
+/*
 int handle_number(int num);
 int len_num(int num);
 int handle_string(const char *str);
-
-
+*/
+/*
 int handle_char_format(va_list list);
 int handle_string_format(va_list list);
 int handle_decimal_format(va_list list);
-
+*/
 
 
 #endif
