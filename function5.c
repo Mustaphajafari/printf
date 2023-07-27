@@ -12,10 +12,7 @@ char *s = va_arg(R, char *);
 int len = 0;
 int i;
 
-/*
-if (s == NULL)
-s = "(null)";
-*/
+
 
 
 char alphabet[] = "\n! ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
