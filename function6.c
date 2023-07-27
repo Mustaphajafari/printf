@@ -19,7 +19,7 @@ length++;
 }
 else
 {
-hi = n;
+dino = n;
 }
 if (dino / 10 != 0)
 length += print_num_helper(dino / 10);

@@ -17,7 +17,7 @@ typedef struct special_cases
 {
 char *match;
 int (*function)(va_list);
-} spc_t
+} spc_t;
 
 
 
