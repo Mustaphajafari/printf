@@ -11,12 +11,14 @@ char *s = va_arg(r, char *);
 
 if (s == NULL)
 s = "(null)";
+int i;
+
 
 int lenr = 0;
 while (s[lenr] != '\0')
 lenr++;
 
-for (int i = lenr - 1; i >= 0; i--)
+for (i = lenr - 1; i >= 0; i--)
 {
 _putchar(s[i]);
 }

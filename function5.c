@@ -9,6 +9,7 @@ int print_rr(va_list R)
 {
 char *s = va_arg(R, char *);
 int len = 0;
+int i;
 
 if (s == NULL)
 s = "(null)";
@@ -16,7 +17,7 @@ s = "(null)";
 char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 char rr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-for (int i = 0; s[i] != '\0'; i++)
+for (i = 0; s[i] != '\0'; i++)
 {
 char c = s[i];
 char *found = strchr(alphabet, c);
