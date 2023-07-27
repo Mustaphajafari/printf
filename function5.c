@@ -12,14 +12,14 @@ char *s = va_arg(R, char *);
 int len = 0;
 int i;
 
-
+/*
 if (s == NULL)
 s = "(null)";
+*/
 
 
-
-char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-char rr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char alphabet[] = "\n! ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char rr[] = "\n! NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 for (i = 0; s[i] != '\0'; i++)
 {
