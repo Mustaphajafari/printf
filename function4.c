@@ -11,10 +11,11 @@ char *s = va_arg(r, char *);
 
 if (s == NULL)
 s = "(null)";
-int i;
+
 
 
 int lenr = 0;
+int i;
 while (s[lenr] != '\0')
 lenr++;
 
