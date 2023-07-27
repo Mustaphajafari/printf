@@ -13,7 +13,7 @@ int handle_string(va_list s)
 	int a;
 
 	str = va_arg(s, char *);
-	if (str == '\0')
+	if (str == NULL)
 	{
 		str = "(null)";
 	}

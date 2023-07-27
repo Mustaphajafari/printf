@@ -18,7 +18,7 @@ int (*character_s(const char *suivant, int dino))(va_list)
 		{NULL, NULL}
 	};
 
-	for (i = 0; options[i].match != '\0'; i++)
+	for (i = 0; options[i].match != NULL; i++)
 		if (options[i].match[0] == suivant[dino])
 			return (options[i].function);
 	return (NULL);

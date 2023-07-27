@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++) /*runs along the chain*/
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 				i = i + 1;
 				longue++;
 			}
-			else if (character_s(format, i + 1) != '\0')
+			else if (character_s(format, i + 1) != NULL)
 			{   longue += character_s(format, i + 1)(list);
 				i = i + 1;
 			}
