@@ -16,7 +16,7 @@ int i;
 
 
 char alphabet[] = "\n! ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-char rr[] = "\n! NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char rr[] = "\n!- NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 for (i = 0; s[i] != '\0'; i++)
 {
