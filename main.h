@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <string.h>
+
 
 /**
  * struct special_cases - the definition of a new structure named special_cases
