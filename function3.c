@@ -11,10 +11,10 @@ int (*character_s(const char *suivant, int dino))(va_list)
 	spc_t options[] = {
 		{"s", handle_string},
 		{"c", handle_char},
-		{"i", print_number},
-		{"d", print_number},
+		{"i", print_num},
+		{"d", print_num},
 		{"u", handle_unsigned},
-		{"r", print_reverse},
+		{"r", print_rev},
 		{NULL, NULL}
 	};
 

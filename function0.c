@@ -3,7 +3,6 @@
 
 /**
  * handle_string - Prints a string or "null" if str is NULL.
- * @str: The string to be printed.
  * @s: variadic variable
  * Return: The number of characters printed.
  */
