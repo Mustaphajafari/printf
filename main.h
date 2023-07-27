@@ -22,9 +22,9 @@ int (*function)(va_list);
 
 
 int _putchar(char c);
-int print_number_helper(unsigned int hi);
-int print_number(va_list i);
-int print_reverse(va_list r);
+int print_num_helper(unsigned int dino);
+int print_num(va_list i);
+int print_rev(va_list r);
 int print_rr(va_list R);
 
 int handle_string(va_list s);
