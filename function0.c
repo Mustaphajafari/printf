@@ -4,77 +4,29 @@
 /**
  * handle_string - Prints a string or "null" if str is NULL.
  * @str: The string to be printed.
- *
+ * @s: variadic variable
  * Return: The number of characters printed.
  */
 
-int handle_string(char *str)
+int handle_string(va_list s)
 {
-	int i = 0;
+	char *str;
+	int a;
 
-	if (str == NULL)
+	str = va_arg(s, char *);
+	if (str == '\0')
 	{
-		return (handle_string("null"));
+		str = "(null)";
 	}
-	while (str[i])
+	for (a = 0; str[a] != '\0'; a++)
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(str[a]);
 	}
-	return (i);
+	return (a);
 }
 
-/**
- * len_num - Calculates the length of an integer.
- * @num: The input integer.
- *
- * Return: The number of digits in the integer.
- */
 
-int len_num(int num)
-{
-	int count = 0;
 
-	if (num == 0)
-		return (1);
-	if (num < 0)
-	{
-		count++;
-		num = -num;
-	}
-	while (num != 0)
-	{
-		count++;
-		num /= 10;
-	}
-	return (count);
-}
-
-/**
- * handle_number - Prints an integer.
- * @num: The integer to be printed.
- *
- * Return: Always 1.
- */
-
-int handle_number(int num)
-{
-	if (num == -2147483648)
-	{
-		_putchar('-');
-		num = -num;
-	}
-	if (num >= 10)
-	{
-		handle_number(num / 10);
-		handle_number(num % 10);
-	}
-	else
-	{
-		_putchar(num + 48);
-	}
-	return (1);
-}
 
 
 
