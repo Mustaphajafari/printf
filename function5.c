@@ -8,11 +8,15 @@
 int print_rr(va_list R)
 {
 char *s = va_arg(R, char *);
+
 int len = 0;
 int i;
 
+
 if (s == NULL)
 s = "(null)";
+
+
 
 char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 char rr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
@@ -25,7 +29,8 @@ char *found = strchr(alphabet, c);
 if (found)
 {
 int index = found - alphabet;
-c = rr[index];												            }
+c = rr[index];
+}
 
 _putchar(c);
 len++;

@@ -8,14 +8,15 @@
 int print_rev(va_list r)
 {
 char *s = va_arg(r, char *);
+int lenr = 0;
+int i;
+
 
 if (s == NULL)
 s = "(null)";
 
 
 
-int lenr = 0;
-int i;
 while (s[lenr] != '\0')
 lenr++;
 
