@@ -8,7 +8,7 @@
 int print_num(va_list i)
 {
 int n = va_arg(i, int);
-unsigned int hi;
+unsigned int dino;
 int length = 0;
 
 if (n < 0)
